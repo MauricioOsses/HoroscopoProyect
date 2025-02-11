@@ -1,0 +1,57 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<div class="container text-center">
+	<div class="step-bar">
+		<span class="step"></span>
+		<span class="step active"></span>
+		<span class="step"></span>
+	</div>
+	<h2>Ingresa tus datos</h2>
+	<hr />
+	<br />
+    <form method="post" action="@Url.Action("EnterData", "Horoscopo")">
+        <div class="form-group">
+            <label for="Name">Nombre</label>
+            <input type="text" class="form-control w-50 mx-auto" id="Name" name="Name" placeholder="Ingrese su Nombre..." required />
+            <br />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control w-50 mx-auto" id="Email" name="Email" placeholder="Ingrese Email..." required />
+            <br />
+        </div>
+        <div class="form-group">
+            <label for="BirthDate">Fecha de Nacimiento</label>
+            <input type="date" class="form-control w-50 mx-auto" id="BirthDate" name="BirthDate" required />
+            <br />
+        </div>
+        <a href="@Url.Action("SelectGender", "Horoscopo")" class="btn btn-secondary" style="background-color: #1464cc;">Volver</a>
+        <button type="submit" id="continueButton" class="btn btn-primary" style="background-color: #fe6d1a;" disabled>Continuar</button>
+    </form>
+
+</div>
+
+<script>
+    // Función que habilita el botón de continuar
+    function toggleContinueButton() {
+        const name = document.getElementById("Name").value;
+        const email = document.getElementById("Email").value;
+        const birthDate = document.getElementById("BirthDate").value;
+        const continueButton = document.getElementById("continueButton");
+
+        // Si los 3 campos están completos, habilita 
+        if (name && email && birthDate) {
+            continueButton.disabled = false;
+        } else {
+            continueButton.disabled = true;
+        }
+    }
+
+    document.getElementById("Name").addEventListener("input", toggleContinueButton);
+    document.getElementById("Email").addEventListener("input", toggleContinueButton);
+    document.getElementById("BirthDate").addEventListener("input", toggleContinueButton);
+
+    window.onload = toggleContinueButton;
+</script>

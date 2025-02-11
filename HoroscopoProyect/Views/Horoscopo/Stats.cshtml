@@ -1,0 +1,16 @@
+﻿@model StatsView
+
+<div class="container">
+    <h2>Estadísticas</h2>
+    <hr />
+    <h3>Signo más buscado: @Model.SignoMasBuscado</h3>
+    <p>Cantidad de búsquedas: @Model.CantidadBuscado</p>
+    <br />
+    <h3>Historial de consultas</h3>
+    <ul>
+        @foreach (var consulta in Model.ConsultaHistorial)
+        {
+            <li>@consulta</li>
+        }
+    </ul>
+</div>

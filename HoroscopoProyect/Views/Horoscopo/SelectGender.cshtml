@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container text-center">
+    <div class="step-bar">
+        <span class="step active"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+    </div>
+    <h2>Ingresa tu género</h2>
+    <hr />
+    <br />
+    <form action="@Url.Action("EnterData", "Horoscopo")" method="get">
+        <div class="gender-selection d-flex justify-content-center">
+            <label for="gender-male" class="mx-3 text-center">
+                <input type="radio" id="gender-male" name="gender" value="Male">
+                <img src="~/img/gen-1.png" alt="Hombre" class="img-fluid" style="max-width: 150px; height: auto; margin-bottom: 10px;">
+                Hombre
+            </label>
+            <label for="gender-female" class="mx-3 text-center">
+                <input type="radio" id="gender-female" name="gender" value="Female">
+                <img src="~/img/gen-2.png" alt="Mujer" class="img-fluid" style="max-width: 150px; height: auto; margin-bottom: 10px;">
+                Mujer
+            </label>
+            <label for="gender-bigender" class="mx-3 text-center">
+                <input type="radio" id="gender-bigender" name="gender" value="Bigender">
+                <img src="~/img/gen-3.png" alt="Bigénero" class="img-fluid" style="max-width: 150px; height: auto; margin-bottom: 10px;">
+                Bigénero
+            </label>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary" style="background-color: #fe6d1a;" id="continueButton" disabled>Continuar</button>
+    </form>
+</div>
+
+<script>
+    // Función que habilita el botón de continuar
+    const genderInputs = document.querySelectorAll('input[name="gender"]');
+    const continueButton = document.getElementById('continueButton');
+
+    function toggleContinueButton() {
+        const isAnyGenderSelected = Array.from(genderInputs).some(input => input.checked);
+        continueButton.disabled = !isAnyGenderSelected;
+    }
+
+    genderInputs.forEach(input => input.addEventListener('change', toggleContinueButton));
+
+    toggleContinueButton();
+</script>
