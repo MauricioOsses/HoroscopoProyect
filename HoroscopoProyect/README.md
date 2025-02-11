@@ -7,4 +7,4 @@ pero me incline por la otra plantilla con el fin de utilizar tecnologías mas mo
 inconvenientes en la clonación y compilación del mismo, el repositorio se encuentra en GitHub
 una vez clonado deberían poder ejecutarlo sin problemas, cualquier duda o consulta quedo a disposición.
 
-LINK DEL REPOSITORIO -> 
+LINK DEL REPOSITORIO -> https://github.com/MauricioOsses/HoroscopoProyect
